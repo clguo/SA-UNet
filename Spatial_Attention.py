@@ -1,4 +1,5 @@
-from keras.layers import multiply, Permute, Concatenate,Conv2D, Lambda
+from keras.layers import GlobalAveragePooling2D, GlobalMaxPooling2D, Reshape, Dense, multiply, Permute, Concatenate, \
+    Conv2D, Add, Activation, Lambda,Conv1D
 from Dropblock import  *
 def spatial_attention(input_feature):
     kernel_size = 7
@@ -41,8 +42,16 @@ def eca_block(input_feature, kernel=7):
     eca_feature = GlobalAveragePooling2D()(input_feature)
     eca_feature = Reshape((1, 1, channel))(eca_feature)
     assert eca_feature._keras_shape[1:] == (1, 1, channel)
+    eca_feature = Permute((3, 1, 2))(eca_feature)
+    eca_feature = Lambda(squeeze)(eca_feature)
+
+
     eca_feature = Conv1D(filters=1,kernel_size=kernel,strides=1,padding="same")(eca_feature)
-    eca_feature.squeeze(eca_feature,)
+    eca_feature=Lambda(unsqueeze)(eca_feature)
+
+
+    eca_feature = Permute((2, 3, 1))(eca_feature)
+    eca_feature = Activation('relu')(eca_feature)
     assert eca_feature._keras_shape[1:] == (1, 1, channel)
     if K.image_data_format() == 'channels_first':
         eca_feature = Permute((3, 1, 2))(eca_feature)
@@ -50,4 +59,9 @@ def eca_block(input_feature, kernel=7):
     eca_feature = multiply([input_feature, eca_feature])
     return eca_feature
 
+def unsqueeze(input):
+    return K.expand_dims(input,axis=-1)
+
+def squeeze(input):
+    return K.squeeze(input,axis=-1)
 
