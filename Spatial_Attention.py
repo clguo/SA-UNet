@@ -30,6 +30,24 @@ def spatial_attention(input_feature):
 
     return multiply([input_feature, cbam_feature])
 
+def eca_block(input_feature, kernel=7):
+    """Contains the implementation of Squeeze-and-Excitation(SE) block.
+    As described in https://arxiv.org/abs/1709.01507.
+    """
 
+    channel_axis = 1 if K.image_data_format() == "channels_first" else -1
+    channel = input_feature._keras_shape[channel_axis]
+
+    eca_feature = GlobalAveragePooling2D()(input_feature)
+    eca_feature = Reshape((1, 1, channel))(eca_feature)
+    assert eca_feature._keras_shape[1:] == (1, 1, channel)
+    eca_feature = Conv1D(filters=1,kernel_size=kernel,strides=1,padding="same")(eca_feature)
+    eca_feature.squeeze(eca_feature,)
+    assert eca_feature._keras_shape[1:] == (1, 1, channel)
+    if K.image_data_format() == 'channels_first':
+        eca_feature = Permute((3, 1, 2))(eca_feature)
+
+    eca_feature = multiply([input_feature, eca_feature])
+    return eca_feature
 
 
