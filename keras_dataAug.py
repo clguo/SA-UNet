@@ -25,7 +25,7 @@ class DataAugmentation:
         random_angle = np.random.randint(1, 360)
         return image.rotate(random_angle, mode), label.rotate(random_angle, Image.NEAREST)
 
-    # 暂时未使用这个函数
+
     @staticmethod
     def randomCrop(image, label):
 
@@ -40,14 +40,14 @@ class DataAugmentation:
     @staticmethod
     def randomColor(image, label):
 
-        random_factor = np.random.randint(0, 31) / 10.  # 随机因子
-        color_image = ImageEnhance.Color(image).enhance(random_factor)  # 调整图像的饱和度
-        random_factor = np.random.randint(10, 21) / 10.  # 随机因子
-        brightness_image = ImageEnhance.Brightness(color_image).enhance(random_factor)  # 调整图像的亮度
-        random_factor = np.random.randint(10, 21) / 10.  # 随机因1子
-        contrast_image = ImageEnhance.Contrast(brightness_image).enhance(random_factor)  # 调整图像对比度
-        random_factor = np.random.randint(0, 31) / 10.  # 随机因子
-        return ImageEnhance.Sharpness(contrast_image).enhance(random_factor), label  # 调整图像锐度
+        random_factor = np.random.randint(0, 31) / 10.  
+        color_image = ImageEnhance.Color(image).enhance(random_factor)  
+        random_factor = np.random.randint(10, 21) / 10.  
+        brightness_image = ImageEnhance.Brightness(color_image).enhance(random_factor)  
+        random_factor = np.random.randint(10, 21) / 10.  
+        contrast_image = ImageEnhance.Contrast(brightness_image).enhance(random_factor)  
+        random_factor = np.random.randint(0, 31) / 10.  
+        return ImageEnhance.Sharpness(contrast_image).enhance(random_factor), label  
 
     @staticmethod
     def randomGaussian(image, label, mean=0.2, sigma=0.3):
