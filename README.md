@@ -1,6 +1,9 @@
+# SA-UNet: Spatial Attention U-Net for Retinal Vessel Segmentation
+
+
+
 ![SA-UNet](SA-UNet.png?raw=true "SA-UNet")
 
-# SA-UNet: Spatial Attention U-Net for Retinal Vessel Segmentation
 
 ---
 
@@ -41,10 +44,10 @@ Keras is compatible with: Python 2.7-3.5.
 The open source code of SA-UNet, the specific model code will be uploaded soon.
 
 
-@article{Guo2020SAUNetSA,
-  title={SA-UNet: Spatial Attention U-Net for Retinal Vessel Segmentation},
-  author={Changlu Guo and Marton Szemenyei and Yugen Yi and Wenle Wang and Buer Chen and Changqi Fan},
-  journal={ArXiv},
-  year={2020},
-  volume={abs/2004.03696}
-}
+@article{Guo2020SAUNetSA,<br>
+  title={SA-UNet: Spatial Attention U-Net for Retinal Vessel Segmentation},<br>
+  author={Changlu Guo and Marton Szemenyei and Yugen Yi and Wenle Wang and Buer Chen and Changqi Fan},<br>
+  journal={ArXiv},<br>
+  year={2020},<br>
+  volume={abs/2004.03696}<br>
+}<br>
