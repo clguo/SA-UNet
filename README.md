@@ -1,27 +1,38 @@
-# SA-UNet: Spatial Attention U-Net for Retinal Vessel Segmentation
-
-
-
-![SA-UNet](SA-UNet.png?raw=true "SA-UNet")
-
-
----
+# [SA-UNet: Spatial Attention U-Net for Retinal Vessel Segmentation](https://arxiv.org/abs/2004.03696)
 
 ## Overview
 
+![SA-UNet](SA-UNet.png?raw=true "SA-UNet")
+
+This code is for the paper: Spatial Attention U-Net for Retinal Vessel Segmentation. We report state-of-the-art performances on DRIVE and CHASE DB1 datasets.
+
+Code written by Changlu Guo, Budapest University of Technology and Economics(BME).
+
+
+We train and evaluate on Ubuntu 16.04, it will also work for Windows and OS.
+
+
+
 ### Datasets
+#### Data augmentation:
+1.keras_dataAug.py <br>
+(1) Random rotation; <br>
+(2) adding Gaussian noise; <br>
+(3) color jittering; <br>
+2.flip.py<br>
+(4) horizontal, vertical and diagonal flips.
 
-
+if you do not want to do above augmentation,just download it from my link.
 
 DRIVE:https://drive.google.com/file/d/1mOjVt2_A1Q7LJ3_C8VEKRfoK2OwEeooy/view?usp=sharing
 CHASE:https://drive.google.com/file/d/1RnPR3hpKIHnu0e3y9DBOXKPXuiqPN8hg/view?usp=sharing
 
+## Quick start 
 
 ### Training
 Run Train_drive.py or Train_chase.py
 ### Testing
 Run Eval_drive.py or Eval_chase.py
-
 
 
 ## About Keras
@@ -40,8 +51,18 @@ Keras is compatible with: Python 2.7-3.5.
 
 
 
-# SA-UNet
-The open source code of SA-UNet, the specific model code will be uploaded soon.
+# If you are inspired by our work, please cite these papers.
+
+
+#### Structured dropout convolutional block
+@INPROCEEDINGS{8942005,  <br>
+author={C. {Guo} and M. {Szemenyei} and Y. {Pei} and Y. {Yi} and W. {Zhou}}, <br> 
+booktitle={2019 IEEE 19th International Conference on Bioinformatics and Bioengineering (BIBE)},   <br>
+title={SD-Unet: A Structured Dropout U-Net for Retinal Vessel Segmentation},   <br>
+year={2019},  <br>
+volume={},  <br>
+number={},  <br>
+pages={439-444},}<br>
 
 
 @article{Guo2020SAUNetSA,<br>
