@@ -35,6 +35,11 @@ Run Train_drive.py or Train_chase.py
 Run Eval_drive.py or Eval_chase.py
 
 
+
+## Environments
+Keras 2.3.1  <br>
+Tensorflow==1.14.0 <br>
+
 ## About Keras
 
 Keras is a minimalist, highly modular neural networks library, written in Python and capable of running on top of either TensorFlow or Theano. It was developed with a focus on enabling fast experimentation. Being able to go from idea to result with the least possible delay is key to doing good research.
