@@ -15,11 +15,11 @@ We train and evaluate on Ubuntu 16.04, it will also work for Windows and OS.
 
 ### Datasets
 #### Data augmentation:
-1.keras_dataAug.py <br>
+1. [keras_dataAug.py](keras_dataAug.py) <br>
 (1) Random rotation; <br>
 (2) adding Gaussian noise; <br>
 (3) color jittering; <br>
-2.flip.py<br>
+2.[flip.py](flip.py)<br>
 (4) horizontal, vertical and diagonal flips.
 
 if you do not want to do above augmentation,just download it from my link.
