@@ -1,3 +1,5 @@
+![SA-UNet](SA-UNet.png?raw=true "SA-UNet")
+
 # SA-UNet: Spatial Attention U-Net for Retinal Vessel Segmentation
 
 ---
