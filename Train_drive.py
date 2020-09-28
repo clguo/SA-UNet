@@ -93,17 +93,17 @@ TensorBoard(log_dir='./autoencoder', histogram_freq=0,
 from  SA_UNet import *
 model=SA_UNet(input_size=(desired_size,desired_size,3),start_neurons=16,lr=1e-3,keep_prob=0.82,block_size=7)
 model.summary()
-weight="Model/DRIVE/SA-UNet_DRIVE.h5"
+weight="Model/DRIVE/SA_UNet.h5"
 restore=True
 
 if restore and os.path.isfile(weight):
     model.load_weights(weight)
 
-model_checkpoint = ModelCheckpoint(weight, monitor='val_acc', verbose=1, save_best_only=False)
+model_checkpoint = ModelCheckpoint(weight, monitor='val_accuracy', verbose=1, save_best_only=False)
 
 
 history=model.fit(x_train, y_train,
-                epochs=150,
+                epochs=100, #first  100 with lr=1e-3,,and last 50 with lr=1e-4
                 batch_size=4,
                 # validation_split=0.05,
                 validation_data=(x_validate, y_validate),
@@ -114,19 +114,11 @@ print(history.history.keys())
 
 # summarize history for accuracy
 plt.plot(history.history['acc'])
-plt.plot(history.history['val_acc'])
+plt.plot(history.history['val_accuracy'])
 plt.title('SA-UNet Accuracy')
 plt.ylabel('accuracy')
 plt.xlabel('epoch')
 plt.legend(['train', 'validate'], loc='lower right')
 plt.show()
 
-# summarize history for loss
-plt.plot(history.history['loss'])
-plt.plot(history.history['val_loss'])
-plt.title('SA-UNet Loss')
-plt.ylabel('loss')
-plt.xlabel('epoch')
-plt.legend(['train', 'validate'], loc='upper right')
-plt.show()
 

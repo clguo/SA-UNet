@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PublishConfigData" autoUpload="Always" serverName="clguo" autoUploadExternalChanges="true">
+  <component name="PublishConfigData" autoUpload="Always" autoUploadExternalChanges="true">
     <serverData>
-      <paths name="clguo">
+      <paths name="changlu@152.66.240.21:22 key">
         <serverdata>
           <mappings>
-            <mapping deploy="/tmp/pycharm_project_403" local="$PROJECT_DIR$" />
+            <mapping deploy="/temp/SA-UNet" local="$PROJECT_DIR$" web="/" />
           </mappings>
         </serverdata>
       </paths>

@@ -51,11 +51,11 @@ y_test=crop_to_shape(y_test,(len(y_test), 960, 999, 1))
 from  SA_UNet import *
 model=SA_UNet(input_size=(desired_size,desired_size,3),start_neurons=16,lr=1e-4,keep_prob=1,block_size=1)
 model.summary()
-weight="Model/CHASE/SA-UNet_150_0.87.h5"
+weight="Model/CHASE/SA_UNet.h5"
 
 if os.path.isfile(weight): model.load_weights(weight)
 
-model_checkpoint = ModelCheckpoint(weight, monitor='val_acc', verbose=1, save_best_only=True)
+model_checkpoint = ModelCheckpoint(weight, monitor='val_accuracy', verbose=1, save_best_only=False)
 
 y_pred = model.predict(x_test)
 y_pred= crop_to_shape(y_pred,(20,960,999,1))
@@ -79,9 +79,6 @@ print('Sensitivity:', recall_score(y_test, y_pred_threshold))
 
 print('Specificity', tn / (tn + fp))
 
-print('NPV', tn / (tn + fn))
-
-print('PPV', tp / (tp + fp))
 print('AUC:', roc_auc_score(y_test, list(np.ravel(y_pred))))
 print("F1:",2*tp/(2*tp+fn+fp))
 N=tn+tp+fn+fp
