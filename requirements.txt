@@ -17,5 +17,5 @@ six==1.13.0
 sklearn==0.0
 tensorboard==1.14.0
 tensorboard-plugin-wit==1.6.0.post3
-tensorflow==1.14.0
+tensorflow==2.5.1
 tensorflow-estimator==1.14.0
