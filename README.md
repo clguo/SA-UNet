@@ -1,8 +1,8 @@
 ## 🆕 News
-- **SA-UNetv2 is released!** Please check the latest paper here: https://arxiv.org/abs/2509.11774
-- 
-# [SA-UNet: Spatial Attention U-Net for Retinal Vessel Segmentation(ICPR 2020)](https://arxiv.org/abs/2004.03696)
+- **SA-UNetv2  is released!** Please check the latest paper here: https://arxiv.org/abs/2509.11774
 
+  
+# [SA-UNet: Spatial Attention U-Net for Retinal Vessel Segmentation(ICPR 2020)](https://arxiv.org/abs/2004.03696)
 ## Overview
 
 ![SA-UNet](SA-UNet.png?raw=true "SA-UNet")
